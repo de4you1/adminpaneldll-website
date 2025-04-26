@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PANEL HOSTING PREMIUM - DE4YOU YT</title>
+    <style>
+        :root {
+            --cyber-blue: #00f0ff;
+            --cyber-purple: #bd00ff;
+            --cyber-pink: #ff00f7;
+            --dark: #0a0a12;
+            --light: #f0f0f0;
+            --card-bg: rgba(20, 20, 30, 0.8);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Rajdhani', 'Orbitron', sans-serif;
+        }
+        
+        @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&family=Orbitron:wght@400;700&display=swap');
+        
+        body {
+            background-color: var(--dark);
+            color: var(--light);
+            min-height: 100vh;
+            padding: 20px;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(0, 240, 255, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(189, 0, 255, 0.05) 0%, transparent 20%);
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+        }
+        
+        .cyber-grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 240, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
+            background-size: 30px 30px;
+            z-index: -1;
+            opacity: 0.5;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            background: linear-gradient(90deg, var(--cyber-blue), var(--cyber-purple), var(--cyber-pink));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: 3px;
+            text-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
+            font-family: 'Orbitron', sans-serif;
+        }
+        
+        .subtitle {
+            font-size: 1.3rem;
+            color: var(--cyber-blue);
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--cyber-purple), var(--cyber-pink));
+            color: white;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            box-shadow: 0 0 20px rgba(189, 0, 255, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            animation: pulse 2s infinite;
+        }
+        
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .pricing-card {
+            background: var(--card-bg);
+            border-radius: 10px;
+            padding: 25px;
+            text-align: center;
+            border: 1px solid rgba(0, 240, 255, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .pricing-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(0, 240, 255, 0.1),
+                transparent
+            );
+            transition: 0.5s;
+        }
+        
+        .pricing-card:hover::before {
+            left: 100%;
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 240, 255, 0.2);
+            border-color: var(--cyber-blue);
+        }
+        
+        .card-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--cyber-blue);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .card-features {
+            list-style: none;
+            margin-bottom: 20px;
+            text-align: left;
+            padding-left: 20px;
+        }
+        
+        .card-features li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .card-features li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: var(--cyber-pink);
+        }
+        
+        .card-price {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 5px;
+            font-family: 'Orbitron', sans-serif;
+        }
+        
+        .card-price span {
+            font-size: 1rem;
+            color: var(--cyber-blue);
+            display: block;
+            margin-top: 5px;
+        }
+        
+        .popular-tag {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: linear-gradient(45deg, var(--cyber-pink), var(--cyber-purple));
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            transform: rotate(15deg);
+            box-shadow: 0 5px 15px rgba(255, 0, 247, 0.3);
+        }
+        
+        .cta {
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        .cta-title {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, var(--cyber-blue), var(--cyber-pink));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(45deg, #25D366, #128C7E);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.3rem;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+            box-shadow: 0 5px 25px rgba(37, 211, 102, 0.4);
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .whatsapp-btn::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255, 255, 255, 0.2),
+                transparent
+            );
+            transition: 0.5s;
+        }
+        
+        .whatsapp-btn:hover::before {
+            left: 100%;
+        }
+        
+        .whatsapp-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.6);
+        }
+        
+        .whatsapp-btn i {
+            margin-right: 10px;
+            font-size: 1.5rem;
+        }
+        
+        .note {
+            text-align: center;
+            margin-top: 30px;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        .cyber-line {
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--cyber-blue), var(--cyber-purple), transparent);
+            margin: 40px 0;
+            border: none;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 20px rgba(189, 0, 255, 0.3); }
+            50% { transform: scale(1.05); box-shadow: 0 0 30px rgba(189, 0, 255, 0.5); }
+            100% { transform: scale(1); box-shadow: 0 0 20px rgba(189, 0, 255, 0.3); }
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .title {
+                font-size: 2.5rem;
+            }
+            
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .card-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="cyber-grid"></div>
+    
+    <div class="container">
+        <header>
+            <h1 class="title">DE4YOU PANEL HOSTING</h1>
+            <p class="subtitle">SOLUSI HOSTING PREMIUM UNTUK KEBUTUHAN ANDA</p>
+            <div class="badge">PROMO TERBATAS</div>
+        </header>
+        
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <h3 class="card-title">ADMIN PANEL</h3>
+                <ul class="card-features">
+                    <li>Tidak Ada Iklan</li>
+                    <li>Private Panel</li>
+                    <li>Full Akses Kontrol</li>
+                    <li>Support 24/7</li>
+                </ul>
+                <div class="card-price">15K<span>/Bulan</span></div>
+            </div>
+            
+            <div class="pricing-card">
+                <h3 class="card-title">RESELLER PUB</h3>
+                <ul class="card-features">
+                    <li>Panel Public</li>
+                    <li>Harga Terjangkau</li>
+                    <li>Bisnis Menguntungkan</li>
+                    <li>Support 24/7</li>
+                </ul>
+                <div class="card-price">5K<span>/Bulan</span></div>
+            </div>
+            
+            <div class="pricing-card">
+                <h3 class="card-title">RESELLER PRIV</h3>
+                <ul class="card-features">
+                    <li>Panel Private</li>
+                    <li>Eksklusif</li>
+                    <li>Bisnis Premium</li>
+                    <li>Support Prioritas</li>
+                </ul>
+                <div class="card-price">10K<span>/Bulan</span></div>
+            </div>
+            
+            <div class="pricing-card" style="border-color: var(--cyber-pink);">
+                <div class="popular-tag">POPULER</div>
+                <h3 class="card-title">PATNER PANEL</h3>
+                <ul class="card-features">
+                    <li>Akses Permanen</li>
+                    <li>Hak Patner</li>
+                    <li>Bonus Fitur</li>
+                    <li>Support VIP</li>
+                </ul>
+                <div class="card-price">40K<span>/Permanen</span></div>
+            </div>
+            
+            <div class="pricing-card" style="border-color: var(--cyber-blue);">
+                <h3 class="card-title">OWNER PANEL</h3>
+                <ul class="card-features">
+                    <li>Akses Permanen</li>
+                    <li>Hak Owner</li>
+                    <li>Fitur Terlengkap</li>
+                    <li>Support VIP 24/7</li>
+                </ul>
+                <div class="card-price">55K<span>/Permanen</span></div>
+            </div>
+        </div>
+        
+        <hr class="cyber-line">
+        
+        <div class="cta">
+            <h3 class="cta-title">MINAT? HUBUNGI KAMI SEKARANG</h3>
+            <p style="margin-bottom: 20px; color: #ccc;">Klik tombol di bawah untuk pemesanan via WhatsApp</p>
+            <a href="https://wa.me/6287778002663" class="whatsapp-btn">
+                <i class="fab fa-whatsapp"></i> WhatsApp DE4YOU
+            </a>
+        </div>
+        
+        <div class="note">
+            *Harga sudah termasuk PPN dan biaya layanan. Garansi uang kembali jika tidak puas.
+        </div>
+    </div>
+    
+    <script>
+        // Add cyber effect to cards
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.pricing-card');
+            
+            cards.forEach(card => {
+                // Add random cyber effect
+                const effect = document.createElement('div');
+                effect.style.position = 'absolute';
+                effect.style.bottom = '0';
+                effect.style.left = '0';
+                effect.style.width = '100%';
+                effect.style.height = '3px';
+                effect.style.background = `linear-gradient(90deg, transparent, ${getRandomColor()}, transparent)`;
+                effect.style.opacity = '0.7';
+                card.appendChild(effect);
+                
+                // Add hover effect
+                card.addEventListener('mouseenter', function() {
+                    effect.style.background = `linear-gradient(90deg, transparent, ${getRandomColor()}, transparent)`;
+                });
+            });
+            
+            function getRandomColor() {
+                const colors = ['#00f0ff', '#bd00ff', '#ff00f7'];
+                return colors[Math.floor(Math.random() * colors.length)];
+            }
+        });
+    </script>
+</body>
+</html>
